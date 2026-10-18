@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MOON HOP — 月の向こうへ</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<main class="shell">
+<header><a class="brand" href="./index.html"><span class="brand-mark">◒</span> MOON HOP<span class="edition">LUNAR EXPEDITION</span></a><nav aria-label="ゲームメニュー"><button id="help">遊び方</button><button id="settings">設定</button><button id="pause">一時停止 <span>Ⅱ</span></button></nav></header>
+<section class="heading"><div><p class="eyebrow">SECTOR 04 / 静かの海</p><h1>もうひと跳び、その先へ。</h1></div><span class="live"><i></i><span id="status">探索中</span></span></section>
+<section class="dashboard" aria-label="探索状況">
+<div class="distance"><span class="label">走行距離</span><div><strong>378</strong><span> / 600 m</span></div><div class="progress"><span></span><i title="チェックポイント 400 m"></i></div><p>次のチェックポイント <b>400 m</b><span>あと22 m</span></p></div>
+<div class="stat"><span class="label">シールド</span><strong id="shield">2 <small>/ 3</small></strong><div id="shield-pips" class="pips" aria-hidden="true">◆ ◆ <span>◇</span></div></div>
+<div class="stat"><span class="label">エネルギー</span><strong><span id="energy">68</span><small>%</small></strong><div class="energy-track"><i id="energy-bar"></i></div></div>
+<div class="stat ore"><span class="label">採掘した鉱石</span><strong>12 <small>/ 20</small></strong><span class="combo">COMBO ×3</span></div>
+</section>
+<section class="stage" aria-label="月面のゲーム画面"><canvas id="scene" width="1200" height="480" aria-label="月面に立つ探検ロボットと遠くの惑星"></canvas><div class="stage-tag">01:24 <span>・</span> MOON SURFACE</div><div class="checkpoint">CHECKPOINT <b>400 m →</b></div><div id="jump-effect" aria-hidden="true">↑</div><div class="stage-bottom">低重力エリア <span>GRAVITY 0.16 G</span></div><div id="overlay" class="overlay" hidden><div class="overlay-card"><p class="eyebrow" id="overlay-tag"></p><h2 id="overlay-title"></h2><p id="overlay-description"></p><div id="result-stats" hidden><div><span>今回の距離</span><strong>378 <small>m</small></strong></div><div><span>セッションベスト</span><strong>1,220 <small>m</small></strong></div></div><button class="primary" id="overlay-action"></button></div></div></section>
+<section class="lower"><div class="missions"><h2>今回のミッション <span>0 / 2</span></h2><div class="mission"><span class="mission-icon">◇</span><div><b>鉱石を20個集める</b><p>月のかけらを持ち帰ろう</p></div><span class="mission-count">12 / 20</span></div><div class="mission"><span class="mission-icon">⚑</span><div><b>無傷でチェックポイントへ</b><p>400 mまでダメージを受けずに到達</p></div><span class="pending">進行中</span></div></div><div class="controls"><div class="items"><button id="repair"><span class="item-icon">＋</span><span><b>リペアキット <em id="repair-count">1</em></b><small>シールドを1回復</small></span></button><button id="boost"><span class="item-icon">ϟ</span><span><b>エナジーブースト <em id="boost-count">2</em></b><small>エネルギーを20%回復</small></span></button></div><button id="jump" class="primary jump">ジャンプ <span>↑</span></button><p class="keyboard"><kbd>Space</kbd> / <kbd>↑</kbd> / <kbd>W</kbd> でもジャンプ</p></div></section>
+<div id="feedback" class="feedback" role="status" aria-live="polite">準備完了。ジャンプの操作を試してみよう。</div>
+<footer><div><b>UI DEMO</b><p>操作と画面遷移のデモです。実際の移動・衝突判定・音声・記録保存はありません。</p></div><label>画面を確認 <select id="demo"><option value="play">プレイ</option><option value="pause">一時停止</option><option value="result">リザルト</option></select></label></footer>
+</main>
+<dialog id="help-dialog"><div class="dialog-head"><h2>月面探検の手引き</h2><button data-close aria-label="閉じる">×</button></div><p>ジャンプして月面を進み、600 mのゴールを目指すゲームのUIデモです。</p><ul><li>ジャンプボタン、Space、↑、Wで操作のアニメーションを確認できます。</li><li>リペアキットはシールドを1、ブーストはエネルギーを20%回復します。</li><li>鉱石20個の収集と、無傷で400 mへの到達がミッションです。</li></ul><p class="note">このデモでは距離やミッションは進行しません。リザルトは下部の「画面を確認」から表示できます。</p></dialog>
+<dialog id="settings-dialog"><div class="dialog-head"><h2>設定</h2><button data-close aria-label="閉じる">×</button></div><label class="setting">音量 <output id="volume-value">60%</output><input id="volume" type="range" min="0" max="100" value="60"></label><label class="toggle"><input id="motion" type="checkbox">動きを抑える</label><p class="note">設定はこの画面を開いている間のみ有効です。音声は再生されません。</p></dialog>
+<script type="module" src="app.js"></script>
+</body></html>

@@ -75,6 +75,12 @@ Codex向けの日本語スキルです。UIの文言・コントロール・装�
 
 ローカルで動かす場合はリポジトリを取得し、ルートで `python -m http.server 8000` を実行して `http://localhost:8000/examples/` を開いてください。
 
+## 他スキルとの切り分け（探索比較）
+
+[4条件の操作デモと観察結果](https://sunahaya-lab.github.io/UIUX-control/experiments/game-four-conditions/) · [共通依頼文・条件・測定値](experiments/game-four-conditions/README.md)
+
+スキルなし／UIUX-controlのみ／ゲームUI指針のみ／両方を、履歴共有なし・同じ要件と素材・実装1回で各1本制作しました。納品後のコードは修正せず、停止・終了の表現や画面の収まりを観察しています。各1本のため、寄与率・優劣・併用効果は断定していません。
+
 ## ファイル
 
 - `SKILL.md`：スキル本体

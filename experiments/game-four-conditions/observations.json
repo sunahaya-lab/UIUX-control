@@ -1,0 +1,82 @@
+{
+  "none": {
+    "documentHeight": 1133,
+    "height": 1000,
+    "jumpBottom": 981,
+    "width": 1440,
+    "resultText": "今回は、ここまで。",
+    "pauseText": "ひと休みしよう。",
+    "mobile": {
+      "documentHeight": 1013,
+      "height": 845,
+      "jumpBottom": 848,
+      "scrollWidth": 375,
+      "width": 390
+    },
+    "settings": [
+      {
+        "value": "61"
+      }
+    ]
+  },
+  "uiux": {
+    "documentHeight": 1148,
+    "height": 1000,
+    "jumpBottom": 939,
+    "width": 1440,
+    "resultText": "ゲームオーバー",
+    "pauseText": "一時停止",
+    "mobile": {
+      "documentHeight": 923,
+      "height": 845,
+      "jumpBottom": 686,
+      "scrollWidth": 375,
+      "width": 390
+    },
+    "settings": [
+      {
+        "value": "61"
+      }
+    ]
+  },
+  "game-ui": {
+    "documentHeight": 1000,
+    "height": 1000,
+    "jumpBottom": 860,
+    "width": 1440,
+    "resultText": "月は、また待っている。",
+    "pauseText": "ひと息、月の上で。",
+    "mobile": {
+      "documentHeight": 845,
+      "height": 845,
+      "jumpBottom": 714,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "settings": [
+      {
+        "value": "61"
+      }
+    ]
+  },
+  "both": {
+    "documentHeight": 1000,
+    "height": 1000,
+    "jumpBottom": 809,
+    "width": 1440,
+    "resultText": "探索終了",
+    "pauseText": "一時停止",
+    "mobile": {
+      "documentHeight": 845,
+      "height": 845,
+      "jumpBottom": 710,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "settings": [
+      {
+        "value": "61"
+      }
+    ]
+  }
+}

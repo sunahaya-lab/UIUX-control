@@ -1,0 +1,29 @@
+{
+  "generations_per_condition": 1,
+  "history": "none",
+  "agent_type": "default",
+  "model_override": null,
+  "reasoning_override": null,
+  "procedure": "one implementation pass plus syntax check; no post-generation repairs",
+  "conditions": {
+    "none": [],
+    "uiux": [
+      "UIUX-control",
+      "references/ux.md"
+    ],
+    "game-ui": [
+      "game-ui-frontend"
+    ],
+    "both": [
+      "UIUX-control",
+      "references/ux.md",
+      "game-ui-frontend"
+    ]
+  },
+  "hashes": {
+    "uiux-main": "80fff87840e54ecc99c2670d34796ced70e3e914b2e09e1dc13ba9a3f4d833e0",
+    "uiux-ux": "3e99174ab458327a17e699edb6cbbea2f2010bd554613d635ba50b3d853fec5e",
+    "game-ui-frontend": "cd017fe0761207dcfd801f236490896cbf1cd6627ee267c801a19c7c780b7a01"
+  },
+  "hash_normalization": "UTF-8 text with LF line endings"
+}
