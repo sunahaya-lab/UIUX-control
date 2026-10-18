@@ -1,4 +1,4 @@
-# ui-copy-and-controls
+# UIUX-control
 
 Codex向けの日本語スキルです。UIの文言・コントロール・装飾と操作の流れを、利用者の目的に照らして設計します。
 
@@ -40,12 +40,12 @@ Codex向けの日本語スキルです。UIの文言・コントロール・装�
 ## 使い方
 
 1. このリポジトリを取得します。
-2. Codexのユーザースキルディレクトリ `~/.codex/skills/ui-copy-and-controls/` に `SKILL.md` と `references/` フォルダを配置します。
-3. UIの制作・修正依頼で `$ui-copy-and-controls` を指定します。
+2. Codexのユーザースキルディレクトリ `~/.codex/skills/uiux-control/` に `SKILL.md` と `references/` フォルダを配置します。
+3. UIの制作・修正依頼で `$uiux-control` を指定します。
 
 例：
 
-> $ui-copy-and-controls を使い、漫画編集ツールの画面を整理してください。原稿を中心にし、線数・濃度・角度と保存形式は分かるように残してください。
+> $uiux-control を使い、漫画編集ツールの画面を整理してください。原稿を中心にし、線数・濃度・角度と保存形式は分かるように残してください。
 
 自動選択時にも適用対象を判断できるよう、SKILL.mdのdescriptionに対象を記載しています。
 
