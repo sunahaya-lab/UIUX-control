@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MOON HOP — 月面探索 UIデモ</title><link rel="stylesheet" href="style.css"></head><body>
+<main class="shell">
+ <header class="topbar"><a class="brand" href="./"><span class="brand-icon">◒</span><span>MOON HOP<small>LUNAR EXPLORATION</small></span></a><div class="header-actions"><span class="demo-badge">UI DEMO</span><button id="help" class="quiet">遊び方</button><button id="settings" class="quiet">設定</button></div></header>
+ <section class="intro"><div><p class="eyebrow">SECTOR 04 / 静かの海</p><h1>もうひと跳び、月の先へ。</h1></div><span class="signal"><i></i> 探索中</span></section>
+ <div class="layout"><section class="main-column">
+ <section class="game" aria-label="月面探索画面"><div class="game-top"><div class="distance"><span>移動距離</span><strong>378<small> m</small></strong></div><div class="goal">GOAL <strong>600 m</strong><div class="goal-line"><i></i></div></div><button id="pause" class="pause" aria-label="一時停止">Ⅱ</button></div>
+ <div class="scene"><canvas id="scene" width="1200" height="480" aria-label="月面に立つ探索ロボット"></canvas><span class="combo">×3 <small>COMBO</small></span><div class="checkpoint"><span>⚑</span> 次のチェックポイント <b>400 m</b></div></div>
+ <div class="status-row"><div><span class="stat-label">シールド</span><strong id="shield" class="shield">◆ ◆ ◇ <small>2 / 3</small></strong></div><div class="energy-stat"><span class="stat-label">エネルギー <b id="energyLabel">68%</b></span><div class="meter"><i id="energyBar"></i></div></div><div><span class="stat-label">採掘した鉱石</span><strong class="ore">◇ <span id="ore">12</span><small> / 20</small></strong></div></div>
+ <div id="overlay" class="overlay" hidden></div>
+ </section>
+ <section class="controls"><div><p class="eyebrow">READY TO HOP?</p><h2>タイミングを合わせてジャンプ</h2><p class="keyboard"><kbd>Space</kbd> <kbd>↑</kbd> <kbd>W</kbd> でも操作できます</p></div><button id="jump" class="jump">ジャンプ <span>↗</span></button></section>
+ <p id="feedback" class="feedback" role="status" aria-live="polite">準備完了。ジャンプの動きを試してみましょう。</p>
+ </section><aside class="side-column">
+ <section class="panel missions"><p class="eyebrow">EXPLORATION LOG</p><h2>今回のミッション</h2><div class="mission"><span class="mission-icon">◇</span><div><h3>月のかけらを集めよう</h3><p>鉱石を20個集める</p><div class="mission-progress"><i></i></div><small>12 / 20 個</small></div></div><div class="mission"><span class="mission-icon">⚑</span><div><h3>傷ひとつない着地を</h3><p>ダメージを受けずに<br>チェックポイントへ到達する</p><small class="pending">進行中 · 400 m 地点</small></div></div></section>
+ <section class="panel inventory"><p class="eyebrow">YOUR EQUIPMENT</p><h2>持ちもの</h2><div class="item"><div class="item-symbol">＋</div><div><h3>修理キット <span id="repairCount">×1</span></h3><p>シールドを1回復</p></div><button id="repair" class="item-action">使う</button></div><div class="item"><div class="item-symbol">ϟ</div><div><h3>ブースト <span id="boostCount">×2</span></h3><p>エネルギーを20%回復</p></div><button id="boost" class="item-action">使う</button></div></section>
+ <div class="note"><span>✦</span><p>あわてず、一歩ずつ。<br>次の目印まで、あと22 m。</p></div>
+ </aside></div>
+ <footer class="demo-controls"><div><strong>画面プレビュー</strong><p>操作と表示を確認するUIデモです。距離や記録はサンプルです。</p></div><div class="segmented" aria-label="デモ画面の選択"><button data-state="play" aria-pressed="true">プレイ</button><button data-state="pause" aria-pressed="false">一時停止</button><button data-state="result" aria-pressed="false">リザルト</button></div></footer>
+</main>
+<dialog id="modal"><div id="modalContent"></div><button id="closeModal" class="modal-close" aria-label="閉じる">×</button></dialog>
+<script type="module" src="app.js"></script></body></html>
