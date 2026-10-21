@@ -10,13 +10,13 @@
 
 調整するたびに結果までスクロールする。説明は多いのに、どこを押せばいいか分からない。押しても、効いたのか分からない。
 
-UIUX-controlは、そんな操作の迷いを減らすための設計スキルです。文言・配置・操作の流れと、ヘルプを含む情報の置き場所を見直します。特定の配色や角丸を禁止せず、必要な説明や作品の世界観は残します。
+UIUX-controlは、そんな操作の迷いを減らすための設計スキルです。文言・配置・操作・ヘルプに加え、美術素材と状態演出も一緒に設計します。豪華な画面では、素材の出力リストと共通の美術仕様からimagegenによる生成へつなぎ、選択・決定・戻るときの触り心地まで確認します。特定の配色や角丸を禁止せず、必要な説明や作品の世界観は残します。
 
 **Codexで制作・検証。Claude Code向けの導入手順も掲載しています（形式互換を確認、Claude Codeでの実行は未検証）。** スキル本文は日本語です。
 
 ### English summary
 
-AI-built interfaces can look finished yet remain hard to use. UIUX-control guides clearer controls, visible feedback, readable text, and contextual help without prescribing one visual style.
+AI-built interfaces can look finished yet remain hard to use. UIUX-control combines composition, asset planning, image-generation handoff, interaction states, motion, and contextual help without prescribing one visual style.
 
 The comparison above uses the same feature brief and assets; it is an illustrative example, not a controlled estimate of the skill's effect. Developed with Codex; Claude Code installation follows its documented skill format but has not been runtime-tested. Skill instructions are currently in Japanese.
 
@@ -44,6 +44,12 @@ Codexでの依頼例：
 > $uiux-control を使い、漫画編集ツールの画面を整理してください。原稿を中心にし、線数・濃度・角度と保存形式は分かるように残してください。
 
 Claude Codeでは先頭を `/uiux-control` に替えて依頼します。自動選択のための適用対象も、スキルのdescriptionに記載しています。
+
+### imagegenとの連携
+
+素材制作が必要な場合は、[素材制作と状態演出](references/assets-and-motion.md)に沿って、出力リスト・共通の美術仕様・状態表を作り、利用可能なimagegenスキルと画像生成ツールへ渡します。UIUX-control自体に画像生成エンジンやAPI接続は含まれません。Claude Code等で生成手段が用意されていない場合は、既存素材を使うか、生成指示と必要素材の一覧までを作成します。
+
+絵や材質は画像に、可変の文字・数値・色反転・入力への反応は実装に分けます。画像だけで完成画面を作って操作を後付けせず、最終表示と反復操作で確認します。
 
 ## スキル未使用版と適用版の制作事例
 
