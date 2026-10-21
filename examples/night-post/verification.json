@@ -1,0 +1,201 @@
+{
+  "scope": "Local browser prototypes; no storage/combat",
+  "browsers": "Chromium IAB and Edge; viewport emulation, not actual mobile",
+  "cases": [
+    {
+      "variant": "baseline",
+      "id": "duplicate",
+      "steps": "初期ルカを空き枠3へ配置",
+      "expected": "拒否し編成保持",
+      "actual": "重複の理由表示、コスト7のまま",
+      "status": "pass"
+    },
+    {
+      "variant": "baseline",
+      "id": "complete",
+      "steps": "ミラ鍵守便を枠3へ配置し確定",
+      "expected": "3人でコスト9",
+      "actual": "3人の名前と9/9の結果ダイアログ",
+      "status": "pass"
+    },
+    {
+      "variant": "baseline",
+      "id": "cost",
+      "steps": "残火特務レオンをミラの枠3へ配置",
+      "expected": "超過を拒否、元の編成維持",
+      "actual": "コスト12>9を説明、合計9のまま",
+      "status": "pass"
+    },
+    {
+      "variant": "baseline",
+      "id": "compare",
+      "steps": "残火特務を表示",
+      "expected": "配置中カードとの差",
+      "actual": "baseline:ミラとの差+450/+310/-28/+3; applied:ルカとの差+620/+180/-40/+2",
+      "status": "pass"
+    },
+    {
+      "variant": "baseline",
+      "id": "help-return",
+      "steps": "存在しない名前で検索→ヘルプ→Escape",
+      "expected": "検索と編成保持、起点へフォーカス",
+      "actual": "空状態を維持、ヘルプボタンへ復帰",
+      "status": "pass"
+    },
+    {
+      "variant": "baseline",
+      "id": "filter",
+      "steps": "星で絞り込み",
+      "expected": "2枚",
+      "actual": "2枚、解除で6枚",
+      "status": "pass"
+    },
+    {
+      "variant": "baseline",
+      "id": "incomplete",
+      "steps": "配置済み枠を外し確定",
+      "expected": "未完成を説明",
+      "actual": "不足枠があると確定せず理由を表示",
+      "status": "pass"
+    },
+    {
+      "variant": "applied",
+      "id": "duplicate",
+      "steps": "初期ルカを空き枠3へ配置",
+      "expected": "拒否し編成保持",
+      "actual": "重複の理由表示、コスト7のまま",
+      "status": "pass"
+    },
+    {
+      "variant": "applied",
+      "id": "complete",
+      "steps": "ミラ鍵守便を枠3へ配置し確定",
+      "expected": "3人でコスト9",
+      "actual": "3人の名前と9/9の結果ダイアログ",
+      "status": "pass"
+    },
+    {
+      "variant": "applied",
+      "id": "cost",
+      "steps": "残火特務レオンをミラの枠3へ配置",
+      "expected": "超過を拒否、元の編成維持",
+      "actual": "コスト12>9を説明、合計9のまま",
+      "status": "pass"
+    },
+    {
+      "variant": "applied",
+      "id": "compare",
+      "steps": "残火特務を表示",
+      "expected": "配置中カードとの差",
+      "actual": "baseline:ミラとの差+450/+310/-28/+3; applied:ルカとの差+620/+180/-40/+2",
+      "status": "pass"
+    },
+    {
+      "variant": "applied",
+      "id": "help-return",
+      "steps": "存在しない名前で検索→ヘルプ→Escape",
+      "expected": "検索と編成保持、起点へフォーカス",
+      "actual": "空状態を維持、ヘルプボタンへ復帰",
+      "status": "pass"
+    },
+    {
+      "variant": "applied",
+      "id": "filter",
+      "steps": "星で絞り込み",
+      "expected": "2枚",
+      "actual": "2枚、解除で6枚",
+      "status": "pass"
+    },
+    {
+      "variant": "applied",
+      "id": "incomplete",
+      "steps": "配置済み枠を外し確定",
+      "expected": "未完成を説明",
+      "actual": "不足枠があると確定せず理由を表示",
+      "status": "pass"
+    },
+    {
+      "variant": "applied",
+      "id": "repeat",
+      "steps": "ミラを枠3に配置後、配置を再クリック",
+      "expected": "重複せず3人",
+      "actual": "3人・9/9を維持",
+      "status": "pass"
+    },
+    {
+      "variant": "applied",
+      "id": "mobile-flow",
+      "steps": "390pxで詳細欄の選択→枠1へ白封速達→確定",
+      "expected": "近くの操作で編成できる",
+      "actual": "白封速達/煤羽便/鍵守便の3人、8/9",
+      "status": "pass"
+    },
+    {
+      "variant": "applied",
+      "id": "motion",
+      "steps": "ヘルプで動き軽減ON",
+      "expected": "CSS transitionを停止",
+      "actual": "カードのcomputed transitionDuration=0s。OS模擬切替は未実施",
+      "status": "pass"
+    },
+    {
+      "variant": "applied",
+      "id": "desktop-layout",
+      "steps": "1440×1000初期表示のDOM計測",
+      "expected": "主要操作が初期画面内",
+      "actual": "文書高1000、配置下端584、確定下端910",
+      "status": "pass"
+    },
+    {
+      "variant": "applied",
+      "id": "narrow-layout",
+      "steps": "320pxのDOM寸法",
+      "expected": "主要コントロールが画面内",
+      "actual": "選択/配置/確定は右端293px以内。装飾由来の約3px文書はみ出しがある",
+      "status": "limited"
+    },
+    {
+      "variant": "applied",
+      "id": "narrow-320-complete",
+      "steps": "320px frame:ミラを選択→枠3配置→確定",
+      "expected": "3人/9コストの結果",
+      "actual": "配置メッセージとconfirmed-cost9を確認",
+      "status": "pass"
+    }
+  ],
+  "revisions": {
+    "baseline": "Initial code unchanged",
+    "applied": "1 composition revision after observed desktop scroll/visual issue; initial3files retained privately; root added horizontal clipping for decorative edges. DOM scrollWidth still includes about3px decoration at320px; main controls remain within client bounds."
+  },
+  "screenshots": {
+    "desktop": "1280×720 reported viewport; baseline/applied initial visible region images. Applied-full is additional full-page capture.",
+    "limitations": "Explicit viewport-override screenshot captures intermittently failed. Narrow first-view and lower controls were visually checked in390/320px iframes; this is not real-device testing."
+  },
+  "not_tested": [
+    "Real touch device",
+    "Safari",
+    "Screen reader",
+    "200% text zoom",
+    "Human usability and preference tests",
+    "Multiple independent generation trials"
+  ],
+  "skill_files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "aee324b40dda6770a1d929aeea314d8925c77e8437d7ecd6a9ba2ee23bee8ffc"
+    },
+    {
+      "path": "references/ux.md",
+      "sha256": "d50222e8e387d8b7f755fc10b290634af77b9383540b8651fc1700a165451b12"
+    },
+    {
+      "path": "references/composition.md",
+      "sha256": "ac4e4306a8f9992079d259bb7e9cc8b7da9a3b2a59e02a17bb154f590cd1c3f8"
+    }
+  ],
+  "initial_baseline_hashes": {
+    "app.js": "0340f25b22554079a7ed9188a341b080911540cd68843f13adb4d2097d40b945",
+    "index.html": "1e7ac5a99aaf44d89b4190c191929a1f518d7e3278a95219a4b0464ece3b014f",
+    "style.css": "417352436b8da37d69c0e06815c13f9d65c90fc8cf4ae4a6de364f8349712392"
+  }
+}

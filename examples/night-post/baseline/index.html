@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>夜郵局 / NIGHT POST</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <a class="back" href="../index.html">← 比較ページ</a>
+      <a class="brand" href="#main"><span class="brand-seal" aria-hidden="true">〒</span><span>夜郵局<small>NIGHT POST</small></span></a>
+      <div class="header-actions"><span class="demo">UIデモ</span><button id="help" class="quiet">使い方 <span aria-hidden="true">?</span></button></div>
+    </header>
+    <main id="main">
+      <section class="page-heading" aria-labelledby="heading">
+        <div><p class="eyebrow">夜間特別便 ・ 配達員名簿</p><h1 id="heading">夜を渡る、三人を。</h1></div>
+        <p class="heading-note">差出人の想いを、夜明けまでに。<br>配達員を選び、今夜の編成を整えてください。</p>
+      </section>
+      <div class="workbench">
+        <section class="collection" aria-labelledby="collection-heading">
+          <div class="section-top"><h2 id="collection-heading">配達員を選ぶ</h2><span id="result-count"></span></div>
+          <label class="search-label" for="search">名前・称号で検索</label>
+          <div class="search-wrap"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="ルカ、月航便…" autocomplete="off"></div>
+          <div class="filters" role="group" aria-label="属性で絞り込み">
+            <button data-element="すべて" aria-pressed="true">すべて</button><button data-element="月" aria-pressed="false">月</button><button data-element="火" aria-pressed="false">火</button><button data-element="星" aria-pressed="false">星</button>
+          </div>
+          <div id="cards" class="cards"></div>
+          <p class="collection-note">同じ配達員でも、異なる便なら編成できます。</p>
+        </section>
+        <section class="dossier" aria-label="選択した配達員の詳細">
+          <div id="portrait" class="main-portrait portrait" role="img"><div class="portrait-frame"></div><span class="portrait-caption">夜郵局公認配達員</span><div class="portrait-name"><span id="art-title"></span><strong id="art-name"></strong></div><span class="art-mark" aria-hidden="true">夜<br>郵<br>局</span></div>
+          <div class="dossier-body">
+            <div class="dossier-top"><p class="eyebrow">配達員記録</p><span id="rarity" class="rarity"></span></div>
+            <div class="name-line"><div><p id="detail-title" class="detail-title"></p><h2 id="detail-name"></h2></div><span id="element" class="element-seal"></span></div>
+            <div class="attributes"><span id="role"></span><span id="card-cost"></span></div>
+            <dl class="stats"><div><dt>体力</dt><dd id="hp"></dd></div><div><dt>攻撃</dt><dd id="attack"></dd></div><div><dt>速度</dt><dd id="speed"></dd></div></dl>
+            <div class="skill-block"><span class="small-label">配達術</span><h3 id="skill"></h3><p id="effect"></p></div>
+            <div class="passive-block"><span class="small-label">特性</span><p id="passive"></p></div>
+            <p id="story" class="story"></p>
+            <div class="compare"><div class="compare-heading"><h3>入れ替え比較</h3><span id="compare-slot"></span></div><div id="comparison"></div></div>
+            <button id="add" class="primary add-button"></button>
+          </div>
+        </section>
+      </div>
+      <section class="formation" aria-labelledby="formation-heading">
+        <div class="formation-heading"><div><p class="eyebrow">今夜の配達班</p><h2 id="formation-heading">三人編成</h2></div><div class="budget"><span>編成コスト</span><strong id="total"></strong><span>上限 9</span></div></div>
+        <div class="formation-controls"><div id="slots" class="slots"></div><div class="formation-actions"><button id="remove" class="quiet remove-button">選んだ枠から外す</button><button id="confirm" class="primary confirm-button">編成を確認 <span aria-hidden="true">→</span></button></div></div>
+        <div class="formation-bottom"><p id="status" role="status" aria-live="polite">枠3を選択中。配達員を選び、追加してください。</p><span>枠を選択 → 配達員を追加 → 編成を確認</span></div>
+      </section>
+      <footer class="footnote"><span>夜更けの手紙に、帰る場所を。</span><span>操作体験用のデモです。保存・戦闘は行いません。</span></footer>
+    </main>
+  </div>
+  <dialog id="modal" aria-labelledby="modal-title"><div class="modal-inner"><button id="close-modal" class="close-modal" aria-label="閉じる">×</button><p class="eyebrow">夜郵局 ・ 編成案内</p><h2 id="modal-title"></h2><div id="modal-content"></div><button id="modal-return" class="primary">編成に戻る</button></div></dialog>
+</body>
+</html>

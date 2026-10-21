@@ -20,6 +20,14 @@ AI-built interfaces can look finished yet remain hard to use. UIUX-control guide
 
 The comparison above uses the same feature brief and assets; it is an illustrative example, not a controlled estimate of the skill's effect. Developed with Codex; Claude Code installation follows its documented skill format but has not been runtime-tested. Skill instructions are currently in Japanese.
 
+## 新しい制作例：夜郵局
+
+装飾や情報が豊かなカード編成画面を、主役・まとまり・動きから設計しました。[未使用版と改訂版を操作する](https://sunahaya-lab.github.io/UIUX-control/examples/night-post/)
+
+![夜郵局：改訂版のカード編成画面](examples/night-post/screenshots/applied-full.jpg)
+
+両版は同じ人物画とカード情報を使用。改訂版には初稿の表示確認後の再設計を含みます。[制作条件・検証範囲](examples/night-post/README.md)
+
 ## 使い方
 
 `SKILL.md` と `references/` フォルダを、次の場所へ配置します。

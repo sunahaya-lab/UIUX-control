@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#122b2b">
+  <title>夜郵局 / NIGHT POST — 配達班編成</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <a class="back" href="../index.html">← 比較一覧</a>
+      <div class="brand"><span class="brand-mark" aria-hidden="true">〒</span><div><h1>夜郵局</h1><span lang="en">NIGHT POST</span></div></div>
+      <div class="header-actions"><span class="demo">UIデモ</span><button id="help-open" class="quiet">遊び方 <span aria-hidden="true">?</span></button></div>
+    </header>
+    <main>
+      <div class="chapter"><div><span class="chapter-number" aria-hidden="true">01</span><h2>配達班編成</h2></div><p>夜を越えて、宛先へ。</p></div>
+      <div class="desk">
+        <section class="collection" aria-labelledby="collection-title">
+          <div class="section-head"><h3 id="collection-title">配達人名簿</h3><span id="result-count">6 枚</span></div>
+          <label class="search"><span aria-hidden="true">⌕</span><span class="sr-only">名前・称号を検索</span><input id="search" type="search" placeholder="名前・称号を検索" autocomplete="off"></label>
+          <div class="filters" role="group" aria-label="属性で絞り込む"><button data-element="all" aria-pressed="true">すべて</button><button data-element="月" aria-pressed="false">☾ 月</button><button data-element="火" aria-pressed="false">火</button><button data-element="星" aria-pressed="false">✧ 星</button></div>
+          <div id="card-list" class="card-list"></div>
+          <div id="empty" class="empty" hidden><span aria-hidden="true">〒</span><p>該当する配達人はいません。</p><button id="reset-filter" class="quiet">絞り込みを解除</button></div>
+        </section>
+        <section class="selection" aria-labelledby="selected-name">
+          <div class="portrait-panel">
+            <div id="hero-art" class="portrait hero-art" role="img" aria-label="ルカの肖像"></div>
+            <div class="art-top"><span id="hero-rarity">特級</span><span id="hero-element">☾ 月</span></div>
+            <div class="portrait-caption"><p id="selected-title">月航便</p><h3 id="selected-name">ルカ</h3><p id="hero-role">速攻</p></div>
+            <div class="postmark" aria-hidden="true"><span>夜郵局</span><b>夜間便</b><span>配達人名簿</span></div>
+          </div>
+          <div class="dossier">
+            <div class="dossier-heading"><span>配達人記録</span><span id="card-number">第 01 号</span></div>
+            <label class="local-picker">別の配達人を見る<select id="local-card" aria-label="詳細を表示する配達人"></select></label>
+            <dl id="stats" class="stats"></dl>
+            <div class="abilities"><section><p class="eyebrow">固有技</p><h4 id="skill-name"></h4><p id="skill-effect"></p></section><section><p class="eyebrow">特性</p><p id="passive"></p></section></div>
+            <details class="story-fold"><summary>この配達人の物語</summary><blockquote id="story"></blockquote></details>
+            <section class="comparison" aria-labelledby="comparison-title"><div class="comparison-head"><h4 id="comparison-title">枠3との比較</h4><label class="target-picker"><span class="sr-only">配置先を変更</span><select id="target-slot" aria-label="配置先を変更"></select></label></div><div id="comparison-body"></div></section>
+            <div class="assign"><button id="add" class="primary">枠3に配置</button><p id="action-message" class="action-message" role="status" aria-live="polite"></p></div>
+          </div>
+        </section>
+      </div>
+      <section class="formation" aria-labelledby="formation-title">
+        <div class="formation-heading"><div><p class="eyebrow">今夜の配達班</p><h3 id="formation-title">編成する枠を選択</h3></div><div class="budget"><span>合計コスト</span><p><strong id="cost-total">7</strong><span> / 9</span></p><div class="budget-track" aria-hidden="true"><div id="cost-fill"></div></div></div></div>
+        <div class="formation-bottom"><div id="slots" class="slots"></div><div class="formation-actions"><button id="remove" class="quiet">枠3を空にする</button><button id="confirm" class="seal-button">編成を確定 <span aria-hidden="true">↗</span></button><p id="formation-message" role="status" aria-live="polite">あと1人を配置してください。</p></div></div>
+      </section>
+    </main>
+    <footer><span>夜郵局・配達人編成室</span><span>この画面は編成体験のデモです。</span></footer>
+  </div>
+  <dialog id="help-dialog" aria-labelledby="help-title"><div class="modal-paper"><div class="modal-header"><span class="eyebrow">夜郵局の手引き</span><button class="close" data-close aria-label="遊び方を閉じる">×</button></div><h2 id="help-title" tabindex="-1">配達班を組むには</h2><ol class="help-list"><li><h3>配達人を選ぶ</h3><p>名簿のカードで詳細を表示します。名前・称号の検索と属性の絞り込みを組み合わせられます。</p></li><li><h3>枠を選び、配置する</h3><p>3つの編成枠から配置先を選び、「配置」ボタンを押します。埋まった枠では配達人を入れ替えます。比較欄の数値は選択カードと配置中カードの差です。</p></li><li><h3>コスト9以内で、3人の班に</h3><p>同じカードは重複できません。同じ人物でも称号が違うカードは編成できます。コスト超過や重複の場合、編成は変わりません。</p></li><li><h3>変更も、確認も</h3><p>選んだ枠は「空にする」で解除できます。3枠が埋まったら「編成を確定」で班を確認します。確定後も編集へ戻れます。</p></li></ol><p class="keyboard-note">キーボードでは Tab で移動、Enter / Space でボタン操作。Esc でこの画面を閉じます。</p><label class="motion-setting"><input id="reduce-motion" type="checkbox"> 動きを軽減する</label><p class="motion-note">端末の動き軽減設定も適用されます。</p><p class="demo-note">編成はページを開いている間だけ保持されます。保存・戦闘は行いません。</p><button class="primary" data-close>編成に戻る</button></div></dialog>
+  <dialog id="confirm-dialog" aria-labelledby="confirm-title"><div class="modal-paper"><div class="modal-header"><span class="eyebrow">配達班・確認票</span><button class="close" data-close aria-label="確認を閉じる">×</button></div><div class="approval-mark" aria-hidden="true">編成済</div><h2 id="confirm-title" tabindex="-1">今夜の班が決まりました</h2><div id="confirmed-lineup"></div><p class="confirmed-cost">合計コスト <strong id="confirmed-cost"></strong> / 9</p><p class="demo-note">UIデモの編成結果です。保存・戦闘は行いません。</p><button class="primary" data-close>編集に戻る</button></div></dialog>
+</body>
+</html>
