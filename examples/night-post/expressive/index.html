@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#091e25"><title>夜郵局 — 選択から配置へ</title>
+  <link rel="stylesheet" href="style.css"><script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+  <header class="masthead">
+    <a href="../index.html" class="back" target="_top">← 版を比較</a>
+    <div class="wordmark"><span aria-hidden="true">〒</span><strong>夜郵局</strong><small>NIGHT POST</small></div>
+    <div class="header-tools"><span class="demo">UIデモ</span><button id="help-open">遊び方・設定</button></div>
+  </header>
+  <main id="studio" data-mode="ability">
+    <div class="chapter"><span aria-hidden="true">07</span><h1>夜間配達班</h1><p>編成室</p></div>
+    <section class="roster" aria-labelledby="roster-title">
+      <div class="roster-head"><h2 id="roster-title">配達人を選ぶ</h2><div class="filters" aria-label="属性" role="group"><button data-filter="all" aria-pressed="true">すべて</button><button data-filter="月" aria-pressed="false">月</button><button data-filter="火" aria-pressed="false">火</button><button data-filter="星" aria-pressed="false">星</button></div><label class="search"><span class="sr-only">名前・称号を検索</span><input id="search" type="search" placeholder="名前・称号" autocomplete="off"></label><span id="card-count"></span></div>
+      <div id="card-list" class="card-list"></div>
+      <div id="empty" hidden><p>該当する配達人はいません。</p><button id="clear-search">絞り込みを解除</button></div>
+    </section>
+    <section class="hero" aria-labelledby="hero-name">
+      <div class="orbit" aria-hidden="true"></div><div class="hero-art-wrap"><img id="hero-art" src="assets/luca.png" alt="ルカの立ち絵" fetchpriority="high"></div>
+      <div class="hero-caption"><div class="identity"><span id="hero-rarity"></span><span id="hero-element"></span><span id="hero-role"></span></div><p id="hero-title"></p><h2 id="hero-name"></h2><div class="caption-rule" aria-hidden="true"></div></div>
+      <span class="folio" aria-hidden="true">夜行便</span>
+    </section>
+    <section class="desk" aria-label="能力と配置">
+      <div class="destination"><div class="section-label"><h2>配置先</h2><p>合計 <strong id="total-cost">7</strong> / 9</p></div><div id="slots" class="slots"></div></div>
+      <div class="dossier">
+        <div class="view-switch" role="group" aria-label="表示内容"><button id="ability-tab" aria-pressed="true">能力</button><button id="compare-tab" aria-pressed="false">配置先と比較 <span aria-hidden="true">⇄</span></button><span class="cost-tag">コスト <b id="card-cost"></b></span></div>
+        <div id="ability-view"><dl id="stats" class="stats"></dl><div class="skill-block"><span class="small-label">固有技</span><h3 id="skill-name"></h3><p id="skill-effect"></p><div class="passive"><span class="small-label">特性</span><p id="passive"></p></div></div><button id="story-open" class="story-link">この配達人の物語 <span aria-hidden="true">↗</span></button></div>
+        <div id="compare-view" hidden><h3 id="comparison-title"></h3><div id="comparison"></div><p id="next-cost" class="next-cost"></p></div>
+      </div>
+      <div class="action-area"><p id="action-status" role="status" aria-live="polite"></p><div class="action-row"><button id="remove" class="minor">枠を空にする</button><button id="place" class="place-button"><span id="place-label">配置する</span><span aria-hidden="true">→</span></button></div><div class="confirm-row"><span id="formation-status"></span><button id="confirm">編成を確定 <span aria-hidden="true">↗</span></button></div></div>
+    </section>
+  </main>
+  <div id="travel-layer" aria-hidden="true"></div><div id="arrival-seal" aria-hidden="true"><span>配</span><b>置</b></div>
+  <dialog id="help-dialog" aria-labelledby="help-title"><div class="modal-head"><h2 id="help-title" tabindex="-1">夜間配達の手引き</h2><button data-close aria-label="遊び方を閉じる">×</button></div><ol><li><b>配達人を選ぶ</b><p>名簿のカードを選ぶと、人物と能力が切り替わります。属性・名前・称号で絞り込めます。</p></li><li><b>配置先と比較する</b><p>3枠から配置先を選び、「配置先と比較」で現在のカードと数値を比べられます。空き枠には比較対象がありません。</p></li><li><b>コスト9以内で配置する</b><p>同じカードは重複できません。同じ人物の別の称号は編成できます。配置はすぐ反映され、演出中も次の操作ができます。</p></li><li><b>3人そろったら確定する</b><p>配置済みの枠は入れ替え・解除できます。このデモは保存・戦闘を行わず、再読込で初期状態へ戻ります。</p></li></ol><label class="motion-control"><input type="checkbox" id="reduce-motion"> 動きを軽減する</label><p>端末側の動き軽減設定も適用します。Tabで移動し、Enter・Spaceで操作、Escapeで閉じられます。</p><button data-close class="modal-primary">編成に戻る</button></dialog>
+  <dialog id="story-dialog" aria-labelledby="story-title"><div class="modal-head"><h2 id="story-title" tabindex="-1"></h2><button data-close aria-label="物語を閉じる">×</button></div><p id="story-text"></p><button data-close class="modal-primary">編成に戻る</button></dialog>
+  <dialog id="result-dialog" aria-labelledby="result-title"><div class="modal-head"><h2 id="result-title" tabindex="-1">配達班を確定しました</h2><button data-close aria-label="結果を閉じる">×</button></div><div class="result-postmark" aria-hidden="true">受 付</div><div id="result-lineup"></div><p class="result-budget">合計コスト <strong id="result-cost"></strong> / 9</p><p>UIデモの結果です。戦闘・保存は行いません。</p><button data-close class="modal-primary">編集に戻る</button></dialog>
+  <noscript>この操作デモにはJavaScriptが必要です。</noscript>
+</body></html>

@@ -22,11 +22,13 @@ The comparison above uses the same feature brief and assets; it is an illustrati
 
 ## 新しい制作例：夜郵局
 
-装飾や情報が豊かなカード編成画面を、主役・まとまり・動きから設計しました。[未使用版と改訂版を操作する](https://sunahaya-lab.github.io/UIUX-control/examples/night-post/)
+**選択→比較→配置を一続きの体験として再設計した演出版。** [新版を操作](https://sunahaya-lab.github.io/UIUX-control/examples/night-post/expressive/) · [前版と触り比べる・操作例を再生](https://sunahaya-lab.github.io/UIUX-control/examples/night-post/compare.html)
 
-![夜郵局：改訂版のカード編成画面](examples/night-post/screenshots/applied-full.jpg)
+![夜郵局・演出版：選択したミラと配置先のレオンを比較](examples/night-post/expressive/screenshots/desktop-compare.jpg)
 
-両版は同じ人物画とカード情報を使用。改訂版には初稿の表示確認後の再設計を含みます。[制作条件・検証範囲](examples/night-post/README.md)
+カード情報・初期編成・コスト制限は共通。新版は透過人物画、背景、構図、状態切替、配置演出を作り直しています。素材と実装も変わるため、スキル単独の効果を測る比較ではありません。[素材・制作・検証の記録](examples/night-post/expressive/README.md)
+
+[以前の共通素材による未使用版・適用版の比較](https://sunahaya-lab.github.io/UIUX-control/examples/night-post/)も、そのまま残しています。
 
 ## 使い方
 

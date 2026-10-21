@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-21",
+  "scope": "Browser-local interactive prototype. Same six cards, initial squad and budget as prior version; new art and interaction design.",
+  "unit_tests": {
+    "command": "node --test model.test.mjs",
+    "passed": 11
+  },
+  "browser_checks": [
+    {
+      "case": "select-compare-place",
+      "result": "pass",
+      "evidence": "Select mira-key, target slot2, compare -150HP/-220attack/+14speed/-2cost; place immediately yields squadcost5 and slot2Mira."
+    },
+    {
+      "case": "interrupt-motion",
+      "result": "pass",
+      "evidence": "Place luca-express then select leon-ember then mira-archive; final portrait/titleMira archive, slot2Luca express, cost5, obsolete stamp hidden."
+    },
+    {
+      "case": "over-budget",
+      "result": "pass",
+      "evidence": "Select leon-ember for vacant slot3 at cost5: message10/9, place aria-disabled true, squad unchanged."
+    },
+    {
+      "case": "reduced-motion",
+      "result": "pass",
+      "evidence": "Help toggle applies reduced class; placement yields cost7 with no travel content or stamp, confirmation lists three cards."
+    },
+    {
+      "case": "help-return",
+      "result": "pass",
+      "evidence": "Search empty state retained after help/Escape, focus returns to help opener, squadcost7 retained."
+    },
+    {
+      "case": "keyboard",
+      "result": "pass",
+      "evidence": "ArrowRight from Luca to Leon to Mira changes selected title to key courier."
+    },
+    {
+      "case": "narrow-flow",
+      "result": "pass",
+      "evidence": "At320px outer comparison viewport, new iframe client289px: compare and place slot2Mira reached cost5."
+    },
+    {
+      "case": "playback",
+      "result": "pass",
+      "evidence": "Comparison playback verifies both framecosts5 and slot2Mira; tab switch retains state."
+    },
+    {
+      "case": "playback-interrupt",
+      "result": "pass",
+      "evidence": "Manual card selection stops scripted playback and allows continuing."
+    },
+    {
+      "case": "final-narrow-width",
+      "result": "pass",
+      "evidence": "Final direct320px viewport: clientWidth305,scrollWidth305,sticky roster; compare and placement reached cost5."
+    }
+  ],
+  "not_tested": [
+    "Actual touch device",
+    "Safari",
+    "Screen reader",
+    "200% text-size enlargement",
+    "Cold network loading under throttling",
+    "Human comfort or preference measurement"
+  ],
+  "assets": {
+    "method": "Built-in image_gen; referenced previous ensemble art",
+    "files": [
+      "assets/luca.png",
+      "assets/leon.png",
+      "assets/mira.png",
+      "assets/night-map.png"
+    ],
+    "transparency": "All three portraits have RGBA alpha range0..254; retained without raster postprocessing",
+    "total_size_mib": 11.74
+  },
+  "limitations": [
+    "Art, layout and interactions differ; this is not a controlled single-skill experiment.",
+    "No combat, audio, account or persistent save.",
+    "Animation timings are implementation choices, not measured universal comfort values."
+  ],
+  "revisions": [
+    "Mobile portrait repositioned so face stays below roster",
+    "Mobile DOM/visual keyboard order aligned",
+    "Narrow roster kept sticky for repeated selection",
+    "Mobile orbital decoration contained to remove horizontal overflow"
+  ]
+}

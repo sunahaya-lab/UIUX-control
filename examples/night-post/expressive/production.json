@@ -1,0 +1,87 @@
+{
+  "title": "夜郵局・演出版",
+  "preserve": [
+    "baseline/",
+    "applied/"
+  ],
+  "intent": "選択した人物へ注目を移し、同じ場所で比較し、配置先へ動きをつなぐ。前版とは構図と状態遷移を変える。",
+  "art_direction": {
+    "reference": "../assets/couriers.png",
+    "palette": [
+      "midnight teal",
+      "ivory",
+      "antique brass",
+      "vermillion"
+    ],
+    "shape": "郵便の切り込み、封印、路線図。人物と活字を画面の主役にする。",
+    "text": "名前・値・操作はDOM。装飾文字に必要情報を焼き込まない。"
+  },
+  "assets": [
+    {
+      "id": "luca",
+      "type": "imagegen edit",
+      "role": "人物の透過立ち絵",
+      "reference": "../assets/couriers.png",
+      "ratio": "2:3 portrait",
+      "transparent": true,
+      "destination": "assets/luca.png",
+      "states": [
+        "selected",
+        "comparison"
+      ]
+    },
+    {
+      "id": "leon",
+      "type": "imagegen edit",
+      "role": "人物の透過立ち絵",
+      "reference": "../assets/couriers.png",
+      "ratio": "2:3 portrait",
+      "transparent": true,
+      "destination": "assets/leon.png",
+      "states": [
+        "selected",
+        "comparison"
+      ]
+    },
+    {
+      "id": "mira",
+      "type": "imagegen edit",
+      "role": "人物の透過立ち絵",
+      "reference": "../assets/couriers.png",
+      "ratio": "2:3 portrait",
+      "transparent": true,
+      "destination": "assets/mira.png",
+      "states": [
+        "selected",
+        "comparison"
+      ]
+    },
+    {
+      "id": "night-map",
+      "type": "imagegen generate",
+      "role": "画面全体の郵便路線図と空気感",
+      "ratio": "landscape",
+      "transparent": false,
+      "destination": "assets/night-map.png",
+      "states": [
+        "all"
+      ]
+    }
+  ],
+  "code_assets": [
+    "選択時の色反転",
+    "郵便印のCSS",
+    "配置先の輪郭",
+    "カードが配置先へ移る演出"
+  ],
+  "motion": {
+    "select": "現在の選択を即時反映。肖像と名札を短く切替。次入力で中断",
+    "compare": "同じ操作領域のまま、肖像を引き比較表を展開",
+    "place": "編成を即時更新し、カードから配置先へ短い軌跡。一度だけ印を表示",
+    "reduced": "移動・拡大を止め、状態の反転と文字の結果を残す"
+  },
+  "outputs": {
+    "人物": "各1024×1536 RGBA",
+    "背景": "1672×941 RGB"
+  }
+}
